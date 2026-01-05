@@ -212,12 +212,12 @@ The project uses `argparse` mapped to strict `dataclasses` in `config.py`.
 The model optimizes the **Negative Log Likelihood (NLL)** loss.
 
 For a sequence of characters , the model estimates the joint probability:
-$$ P(x) = \prod_{i=1}^{T} P(x_i | x_1, \dots, x_{i-1}) $$
+$$P(x) = \prod_{i=1}^{T} P(x_i \mid x_1, \dots, x_{i-1})$$
 
 During training, we minimize the cross-entropy loss between the predicted distribution of the next character and the actual next character in the training data.
 
 The **Self-Attention** mechanism allows the model to weigh the importance of different previous characters dynamically:
-$$ \text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V $$
+$$\text{Attention}(Q, K, V) = \text{softmax}\left(\frac{QK^T}{\sqrt{d_k}}\right)V$$
 where a causal mask ensures  is lower-triangular, preventing information leakage from the future.
 
 ---
