@@ -42,7 +42,7 @@ The primary objective of this repository is to serve as a reference implementati
 
 "Makemore" treats language generation as a next-token prediction task. Given a dataset of text (e.g., a list of names), the model is trained to maximize the likelihood of the next character in a sequence given the history of previous characters.
 
-$$P(x) = \prod_{t=1}^{T} P(x_t | x_{<t})$$
+$$P(x) = \prod_{t=1}^{T} P(x_t \mid x_{\lt t})$$
 
 While the core logic remains faithful to the original educational intent, the infrastructure has been rebuilt to support:
 * **Scalability:** Easy to extend to larger datasets and deeper models.
@@ -76,7 +76,8 @@ makemore/
 └── names.txt           # Default training corpus
 
 Jupyter-Notes/          # Code Snippets and Explanations Provided as Jypyter Notebook files 
-├── note1.ipynb         
+├── names.txt           # Default training corpus
+├── note1.ipynb             
 ├── note2.ipynb         
 ├── note3.ipynb         
 ├── note4.ipynb         
