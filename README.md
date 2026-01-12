@@ -76,8 +76,7 @@ makemore/
 └── names.txt           # Default training corpus
 
 Jupyter-Notes/          # Code Snippets and Explanations Provided as Jypyter Notebook files 
-├── names.txt           # Default training corpus
-├── note1.ipynb             
+├── note1.ipynb         
 ├── note2.ipynb         
 ├── note3.ipynb         
 ├── note4.ipynb         
@@ -130,19 +129,21 @@ pip install torch torchvision torchaudio tensorboard
 
 ### Training
 
-To start training the model, use `main.py`. The script will automatically split the data, initialize the model, and begin the optimization loop.
+To start training the model, use `trainer.py`. The script will automatically split the data, initialize the model, and begin the optimization loop.
 
 **Basic CPU Run:**
 
 ```bash
-python main.py --input-file names.txt --work-dir out/run_01
+cd makemore
+python trainer.py --input-file names.txt --work-dir out/run_01
 
 ```
 
 **Advanced GPU Run:**
 
 ```bash
-python main.py \
+cd makemore
+python trainer.py \
     --input-file names.txt \
     --work-dir out/transformer_gpu \
     --device cuda \
@@ -169,6 +170,7 @@ tensorboard --logdir out/
 Generate new samples using a trained checkpoint. Ensure the model architecture arguments match those used during training.
 
 ```bash
+cd makemore
 python inference.py \
     --model-path out/transformer_gpu/model.pt \
     --input-file names.txt \
